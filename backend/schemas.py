@@ -3,7 +3,7 @@ from typing import List, Optional
 from datetime import datetime
 
 class TaskBase(BaseModel):
-    title: String
+    title: str
     description: Optional[str] = None
     due_date: Optional[datetime] = None
     status: Optional[str] = "TODO"
@@ -17,7 +17,7 @@ class SmartTaskCreate(BaseModel):
 class TaskResponse(TaskBase):
     id: str
     priority_score: int
-    smart_tags: List[str]
+    smart_tags: Optional[List[str]] = []
     created_at: datetime
     
     class Config:
